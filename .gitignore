@@ -1,0 +1,11 @@
+.idea/replstate.xml
+
+temp/
+
+.idea/**/dataSources/
+
+*.zip
+*.jar
+*.log
+
+target/
