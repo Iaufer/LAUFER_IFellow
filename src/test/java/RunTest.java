@@ -9,12 +9,12 @@ import org.junit.jupiter.api.Timeout;
 public class RunTest {
     @BeforeAll
     public static void beforeAll(){
-        System.out.println("Tests is run!!!");
+        System.out.println("Tests is run!");
     }
 
     @AfterAll
     public static void afterAll(){
-        System.out.println("Tests completed!!!");
+        System.out.println("Tests completed!");
     }
 
     @Test
@@ -49,7 +49,7 @@ public class RunTest {
     @Test
     public void testArrayIsSorted(){
         System.out.println("Sorting test is complete");
-        Assertions.assertTrue(Main.IsSortedDev());
+        Assertions.assertTrue(Main.IsSorted());
     }
 
     @Test
