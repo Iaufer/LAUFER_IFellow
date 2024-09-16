@@ -4,6 +4,7 @@ import pages.BugCreatePage;
 import pages.LoginPage;
 import pages.TestPage;
 import pages.TestSeleniumATHomeworkPage;
+import tools.ConfigReader;
 import webhooks.WebHook;
 
 public class WebHookTest extends WebHook {
@@ -14,8 +15,8 @@ public class WebHookTest extends WebHook {
 
     @Test
     public void edujiraIFTest(){
-        lPage.inputLogin("AT6");
-        lPage.inputPassword("Qwerty123");
+        lPage.inputLogin(ConfigReader.confData().getProperty("login"));
+        lPage.inputPassword(ConfigReader.confData().getProperty("password"));
         lPage.clickBtn();
         Assertions.assertEquals(lPage.getText(), "Добро пожаловать в Jira");
 

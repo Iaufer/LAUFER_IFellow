@@ -1,6 +1,7 @@
 package pages;
 
 import com.codeborne.selenide.SelenideElement;
+import tools.ConfigReader;
 
 import static com.codeborne.selenide.Selenide.$x;
 
@@ -23,7 +24,7 @@ public class BugCreatePage {
     }
 
     public void writeFields(){
-        theme.setValue("task1"); // взять из конфига
+        theme.setValue(ConfigReader.confData().getProperty("task")); // взять из конфига
         desc.setValue("Some description");
         environment.setValue("Some environment");
 //        seriousness.setValue("Some seriousness");
@@ -41,7 +42,7 @@ public class BugCreatePage {
     }
 
     public void searchTask(){
-        search.setValue("task1").pressEnter(); //взять из конфига
+        search.setValue(ConfigReader.confData().getProperty("task")).pressEnter(); //взять из конфига
     }
 
     public String getTaskStatus(){

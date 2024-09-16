@@ -19,7 +19,7 @@ public class TestPage {
     private int oldCount;
     private int newCount;
 
-    private final String nameTask = "FIX FIX BUG"; //сделать из конфига
+    private final String nameTask = "FIX FIX BUG";
 
 
     public void clickBtn(){
