@@ -14,8 +14,6 @@ public class BugCreatePage {
     SelenideElement inWork = $x("//a[@id='action_id_21']//span[@class='trigger-label']");
     SelenideElement done = $x("//a[@id='opsbar-transitions_more']");
     SelenideElement search = $x("//input[@name='searchString']");
-//    SelenideElement seriousness = $x("//option[@value='10101']");
-
     SelenideElement status = $x("//span[@class=' jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done jira-issue-status-lozenge-max-width-medium']");
 
 
@@ -27,7 +25,6 @@ public class BugCreatePage {
         theme.setValue(ConfigReader.confData().getProperty("task")); // взять из конфига
         desc.setValue("Some description");
         environment.setValue("Some environment");
-//        seriousness.setValue("Some seriousness");
     }
 
     public void saveTask(){

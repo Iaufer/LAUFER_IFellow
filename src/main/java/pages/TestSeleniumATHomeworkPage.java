@@ -9,10 +9,6 @@ public class TestSeleniumATHomeworkPage {
     SelenideElement status = $x("//span[contains(@class, 'jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-blue-gray jira-issue-status-lozenge-new jira-issue-status-lozenge-max-width-medium')]");
     SelenideElement fixInV = $x("//a[contains(@title, 'Version 2.0')]");
 
-//    public void moveMainPage(){
-//        mPage.click();
-//    }
-
     public void searchTask(){
         search.setValue("TestSeleniumATHomework").pressEnter();
     }

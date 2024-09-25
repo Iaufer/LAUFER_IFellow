@@ -5,10 +5,10 @@ import static com.codeborne.selenide.Selenide.$x;
 
 
 public class LoginPage {
-    public static SelenideElement iLogin = $x("//input[@name='os_username']");
-    public static SelenideElement iPassword = $x("//input[@name='os_password']");
-    public static SelenideElement lBtn = $x("//input[@name='login']");
-    public static SelenideElement text = $x("//h3[text()='Добро пожаловать в Jira']");
+    public SelenideElement iLogin = $x("//input[@name='os_username']");
+    public SelenideElement iPassword = $x("//input[@name='os_password']");
+    public SelenideElement lBtn = $x("//input[@name='login']");
+    public SelenideElement text = $x("//h3[text()='Добро пожаловать в Jira']");
 
     public void inputLogin(String login){
         iLogin.setValue(login);
