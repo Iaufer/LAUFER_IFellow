@@ -1,3 +1,5 @@
+package tests;
+
 import org.junit.jupiter.api.*;
 import pages.BugCreatePage;
 import pages.LoginPage;
@@ -30,6 +32,10 @@ public class WebHookTest extends WebHook {
     @Order(2)
     @DisplayName("Пользователь проверяет, что при создании задачи их становится на одну больше")
     public void checkTaskTest(){
+        lPage.inputLogin(Prop.login());
+        lPage.inputPassword(Prop.password());
+        lPage.clickBtn();
+
         tPage.clickBtn();
         tPage.checkTask();
     }
@@ -38,6 +44,13 @@ public class WebHookTest extends WebHook {
     @Order(3)
     @DisplayName("Пользователь переходит в задачу TestSeleniumATHomework, проверяет статус задачи и версию")
     public void checkTestSelATHomework(){
+        lPage.inputLogin(Prop.login());
+        lPage.inputPassword(Prop.password());
+        lPage.clickBtn();
+
+        tPage.clickBtn();
+        tPage.checkTask();
+
         TSPage.searchTask();
     }
 
@@ -45,6 +58,15 @@ public class WebHookTest extends WebHook {
     @Order(4)
     @DisplayName("Пользователь создает баги добавляет описание")
     public void testCreateBug(){
+        lPage.inputLogin(Prop.login());
+        lPage.inputPassword(Prop.password());
+        lPage.clickBtn();
+
+        tPage.clickBtn();
+        tPage.checkTask();
+
+        TSPage.searchTask();
+
         BGPage.moveCreate();
         BGPage.writeFields();
         BGPage.saveTask();

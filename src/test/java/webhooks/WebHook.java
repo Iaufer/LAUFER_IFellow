@@ -1,11 +1,10 @@
 package webhooks;
 
-import com.codeborne.selenide.Browsers;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
 
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.PageLoadStrategy;
 import tools.ConfigReader;
@@ -14,8 +13,8 @@ import tools.ConfigReader;
 public class WebHook {
     private static final ConfigReader Prop = ConfigReader.getInstance();
 
-    @BeforeAll
-    public static void initBrowser(){
+    @BeforeEach
+    public void initBrowser(){
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--start-maximized");
         Configuration.browserSize = null;
@@ -25,8 +24,8 @@ public class WebHook {
         Selenide.open(Prop.url());
     }
 
-    @AfterAll
-    public static void tearDown() {
+    @AfterEach
+    public void tearDown() {
         Selenide.closeWebDriver();
     }
 }
