@@ -1,9 +1,7 @@
-.idea/replstate.xml
-
+.idea/
 temp/
-
-.idea/**/dataSources/
-
+build/
+.allure/
 *.zip
 *.jar
 *.log

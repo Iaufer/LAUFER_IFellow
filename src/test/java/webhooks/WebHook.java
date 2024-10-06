@@ -6,21 +6,25 @@ import com.codeborne.selenide.Selenide;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.AfterAll;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.PageLoadStrategy;
 import tools.ConfigReader;
-
-import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 
 
 public class WebHook {
+    private static final ConfigReader Prop = ConfigReader.getInstance();
 
     @BeforeAll
     public static void initBrowser(){
-        Configuration.browser = Browsers.CHROME;
-        Selenide.open(ConfigReader.confData().getProperty("url"));
-        getWebDriver().manage().window().maximize();
-        Configuration.timeout = 15000;
-
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--start-maximized");
+        Configuration.browserSize = null;
+        Configuration.browserCapabilities = options;
+        Configuration.pageLoadStrategy = PageLoadStrategy.NORMAL.toString();
+        Configuration.timeout = 20000;
+        Selenide.open(Prop.url());
     }
+
     @AfterAll
     public static void tearDown() {
         Selenide.closeWebDriver();

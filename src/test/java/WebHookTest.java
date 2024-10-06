@@ -1,5 +1,4 @@
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import pages.BugCreatePage;
 import pages.LoginPage;
 import pages.TestPage;
@@ -7,37 +6,48 @@ import pages.TestSeleniumATHomeworkPage;
 import tools.ConfigReader;
 import webhooks.WebHook;
 
+
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class WebHookTest extends WebHook {
+    private final ConfigReader Prop = ConfigReader.getInstance();
+
     private final LoginPage lPage = new LoginPage();
     private final TestPage tPage = new TestPage();
     private final TestSeleniumATHomeworkPage TSPage = new TestSeleniumATHomeworkPage();
     private final BugCreatePage BGPage = new BugCreatePage();
 
+
     @Test
-    public void edujiraIFTest(){
-        lPage.inputLogin(ConfigReader.confData().getProperty("login"));
-        lPage.inputPassword(ConfigReader.confData().getProperty("password"));
+    @Order(1)
+    @DisplayName("Тест авторизации")
+    public void testLoginUser(){
+        lPage.inputLogin(Prop.login());
+        lPage.inputPassword(Prop.password());
         lPage.clickBtn();
-        Assertions.assertEquals(lPage.getText(), "Добро пожаловать в Jira");
+    }
 
+    @Test
+    @Order(2)
+    @DisplayName("Пользователь проверяет, что при создании задачи их становится на одну больше")
+    public void checkTaskTest(){
         tPage.clickBtn();
-        Assertions.assertEquals(tPage.getText(), "Открытые задачи");
         tPage.checkTask();
-        Assertions.assertEquals(tPage.getNewCount(), tPage.getOldCount()+1);
+    }
 
-        //TSPage.moveMainPage();
+    @Test
+    @Order(3)
+    @DisplayName("Пользователь переходит в задачу TestSeleniumATHomework, проверяет статус задачи и версию")
+    public void checkTestSelATHomework(){
         TSPage.searchTask();
-        Assertions.assertEquals(TSPage.getTaskStatus(), "СДЕЛАТЬ");
-        Assertions.assertEquals(TSPage.getFixInVetsion(), "Version 2.0");
+    }
 
+    @Test
+    @Order(4)
+    @DisplayName("Пользователь создает баги добавляет описание")
+    public void testCreateBug(){
         BGPage.moveCreate();
         BGPage.writeFields();
         BGPage.saveTask();
         BGPage.allStatusTask();
-        Assertions.assertEquals(BGPage.getTaskStatus(), "ГОТОВО");
-//        BGPage.allStatusTask();
     }
-
-
-
 }

@@ -1,17 +1,24 @@
 package tools;
 
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.util.Properties;
+import org.aeonbits.owner.Config;
+import org.aeonbits.owner.ConfigFactory;
 
-public class ConfigReader {
-    public static Properties confData() {
-        Properties properties = new Properties();
-        try(FileInputStream input = new FileInputStream("src/main/resources/config.properties")){
-            properties.load(input);
-        }catch (IOException e){
-            e.printStackTrace();
-        }
-        return properties;
+@Config.Sources("file:src/test/resources/config.properties")
+public interface ConfigReader extends Config {
+
+    @Key("task")
+    String task();
+
+    @Key("url")
+    String url();
+
+    @Key("login")
+    String login();
+
+    @Key("password")
+    String password();
+
+    static ConfigReader getInstance() {
+        return ConfigFactory.create(ConfigReader.class);
     }
 }

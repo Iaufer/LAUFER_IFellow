@@ -2,13 +2,13 @@ package pages;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$x;
 
 public class TestPage {
-
     SelenideElement projectBtn = $x("//a[@id='browse_link']");
     SelenideElement testBtn = $x("//a[@id='admin_main_proj_link_lnk']");
     SelenideElement sum = $x("//div[@class='showing']");
@@ -19,14 +19,15 @@ public class TestPage {
     private int oldCount;
     private int newCount;
 
-    private final String nameTask = "FIX FIX BUG";
+    private final String nameTask = "FIX FIX BUGy";
 
-
+    @Step("Пользователь нажимает кнпоку")
     public void clickBtn(){
         projectBtn.click();
         testBtn.click();
     }
 
+    @Step("Пользователь смотрит сколько задач есть")
     public void checkTask(){
         oldCount =  Integer.parseInt(sum.getText().split(" ")[2]);
         createTask.click();
@@ -37,10 +38,12 @@ public class TestPage {
         newCount = Integer.parseInt(sum.getText().split(" ")[2]);
     }
 
+    @Step("Пользователь получает количество задач до создания еще одной")
     public int getOldCount(){
         return oldCount;
     }
 
+    @Step("Пользователь получает количество задачи после созадания еще одной задачи")
     public int getNewCount(){
         return newCount;
     }
