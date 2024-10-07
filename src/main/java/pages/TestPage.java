@@ -43,11 +43,6 @@ public class TestPage {
         return oldCount;
     }
 
-    @Step("Пользователь получает количество задачи после созадания еще одной задачи")
-    public int getNewCount(){
-        return newCount;
-    }
-
     public String getText(){
         return test.getText();
     }

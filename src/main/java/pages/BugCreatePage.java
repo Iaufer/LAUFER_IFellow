@@ -20,6 +20,7 @@ public class BugCreatePage {
     SelenideElement done = $x("//a[@id='opsbar-transitions_more']");
     SelenideElement search = $x("//input[@name='searchString']");
     SelenideElement status = $x("//span[@class=' jira-issue-status-lozenge aui-lozenge jira-issue-status-lozenge-green jira-issue-status-lozenge-done jira-issue-status-lozenge-max-width-medium']");
+    SelenideElement bproc = $x("//span[@class='dropdown-text' and contains(text(), 'Бизнес-процесс')]");
 
 
     @Step("Пользователь нажимает 'создать баг'")
@@ -51,10 +52,4 @@ public class BugCreatePage {
     public void searchTask(){
         search.setValue(task).pressEnter();
     }
-
-    @Step("Пользователь получает статус задачи")
-    public String getTaskStatus(){
-        return status.getText();
-    }
-
 }
