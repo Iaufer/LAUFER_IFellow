@@ -6,7 +6,6 @@ import pages.BugCreatePage;
 import pages.LoginPage;
 import pages.TestPage;
 import pages.TestSeleniumATHomeworkPage;
-import tools.ConfigReader;
 import webhooks.WebHook;
 
 
