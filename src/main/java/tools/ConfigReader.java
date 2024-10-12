@@ -18,6 +18,9 @@ public interface ConfigReader extends Config {
     @Key("password")
     String password();
 
+    @Key("nameTask")
+    String nameTask();
+
     static ConfigReader getInstance() {
         return ConfigFactory.create(ConfigReader.class);
     }
