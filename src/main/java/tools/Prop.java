@@ -3,7 +3,7 @@ package tools;
 import org.aeonbits.owner.Config;
 import org.aeonbits.owner.ConfigFactory;
 
-@Config.Sources("file:src/test/resources/conf.properties")
+@Config.Sources("file:src/test/resources/properties/conf.properties")
 public interface Prop extends Config {
 
     @Key("FILE_PATH")
