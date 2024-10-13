@@ -47,7 +47,7 @@ public class CreateUser {
     @Тогда("Проверить что статус код 200 или 201")
     public void verifyStatusCode() {
         int statusCode = response.getStatusCode();
-        Assertions.assertTrue(statusCode == 200 || statusCode == 201);//с этим что делать то
+        Assertions.assertTrue(statusCode == 200 || statusCode == 201);
     }
 
     @Тогда("Проверить что response имеет валидные данные по значениям key и value")
