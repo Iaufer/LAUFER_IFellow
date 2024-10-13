@@ -94,22 +94,4 @@ public class FirstTaskMorty {
         this.lastSpecies = lastCharacterJson.getString("species");
         this.lastLocation = lastCharacterJson.getJSONObject("location").getString("name");
     }
-
-
-    //пока хз
-    public String getSpecies() {
-        return species;
-    }
-
-    public String getLastSpecies() {
-        return lastSpecies;
-    }
-
-    public String getLocation() {
-        return location;
-    }
-
-    public String getLastLocation() {
-        return lastLocation;
-    }
 }
