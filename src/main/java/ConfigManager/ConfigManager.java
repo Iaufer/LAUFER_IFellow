@@ -25,4 +25,6 @@ public class ConfigManager {
     public static String getNameTask() {
         return config.nameTask();
     }
+
+    public static String getChromeDriverPath(){return config.chromeDriverPath(); }
 }

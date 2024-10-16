@@ -21,6 +21,9 @@ public interface ConfigReader extends Config {
     @Key("nameTask")
     String nameTask();
 
+    @Key("chromeDriverPath")
+    String chromeDriverPath();
+
     static ConfigReader getInstance() {
         return ConfigFactory.create(ConfigReader.class);
     }
