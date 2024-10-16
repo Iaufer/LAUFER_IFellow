@@ -3,7 +3,7 @@ package tools;
 import org.aeonbits.owner.Config;
 import org.aeonbits.owner.ConfigFactory;
 
-@Config.Sources("file:src/test/resources/config.properties")
+@Config.Sources("file:src/test/resources/properties/config.properties")
 public interface ConfigReader extends Config {
 
     @Key("task")
